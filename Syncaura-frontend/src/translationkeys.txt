@@ -1,0 +1,78 @@
+cta_plus_count: +9K
+cta_rating_value: 4.4 / 5
+cta_trusted_by: Trusted by 10,000+ professionals worldwide
+
+create_task_title: Create New Task
+task_title_label: Task Title *
+task_title_placeholder: e.g. Design landing page
+task_title_required: Title is required
+task_description_label: Description
+task_description_placeholder: Add details about this task…
+task_priority_label: Priority
+priority_low: Low
+priority_medium: Medium
+priority_high: High
+task_initial_status_label: Initial Status
+status_todo: To Do
+status_in_progress: In Progress
+status_done: Done
+task_deadline_label: Deadline
+task_assigned_to_label: Assigned To
+task_assigned_placeholder: Name or email
+cancel: Cancel
+creating_ellipsis: Creating…
+create_task_button: Create Task
+
+edited_by: Edited by {{editor}}
+view: View
+restore: Restore
+share: Share
+download: Download
+version_history: VERSION HISTORY
+open_editor: Open Editor
+file_small_display: {{type}} • {{version}}
+file_type_pdf: PDF
+file_version_v3_2: v3.2
+file_status_final: Final
+edit: Edit
+
+meeting_status_completed: COMPLETED
+meeting_status_live_now: LIVE NOW
+meeting_status_today: TODAY
+meeting_status_tomorrow: TOMORROW
+meet_label: Meet
+meeting_completed: Completed
+details: Details
+join_now: Join Now
+
+new_project_title: New Project
+project_name_placeholder: eg: Website Redesign
+project_name_label: Project Name
+project_description_label: Project Description
+department_team_label: Department/ Team
+project_status_label: Project Status
+project_priority_label: Priority
+project_priority_low: Low
+project_priority_medium: Medium
+project_priority_high: High
+project_priority_critical: Critical
+start_date_label: Start Date
+end_date_label: End Date
+add_members_label: Add Members
+project_owner_label: Project Owner
+select_team: Select Team..
+select_project_status: Select Project Status..
+select_members: Select Members..
+select_owner: Select owner..
+create_project_button: Create Project
+
+new_notice_title: New Notice
+category_label: Category
+all_label: All
+date_label: Date
+notice_date_placeholder: Notice issued on
+description_label: Description
+notice_description_placeholder: Describe the issue in detail...
+attachments_label: Attachments
+upload_hint: Click to upload or drag & drop
+submit_notice: Submit Notice

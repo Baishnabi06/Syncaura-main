@@ -1,10 +1,12 @@
 import { useRef, useState, useEffect } from "react";
 import { motion,useTransform } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const TimelineItem = ({ item, index, lineProgress }) => {
   const dotRef = useRef(null);
   const [dotY, setDotY] = useState(0);
   const [active, setActive] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (dotRef.current) {
@@ -72,7 +74,7 @@ const TimelineItem = ({ item, index, lineProgress }) => {
             </div>
           </div>
           <div className="flex items-center justify-start w-full">
-            <p className="text-lg text-[#000000] dark:text-[#FFFFFF]">Edited by {item.editor}</p>
+            <p className="text-lg text-[#000000] dark:text-[#FFFFFF]">{t("edited_by", { editor: item.editor })}</p>
           </div>
           <div className="flex items-center justify-center w-full">
             <div className="flex items-center justify-center w-full bg-[#F8F8F8] dark:bg-[#575757] py-2 rounded-xl border border-[#E0DDDD] dark:border-[#575757]">
@@ -81,8 +83,8 @@ const TimelineItem = ({ item, index, lineProgress }) => {
           </div>
           <div className="flex items-center justify-start w-full">
             <div className="flex items-center justify-center gap-3">
-              <p className="text-[#2461E6] dark:text-[#73FBFD] cursor-pointer hover:underline text-base">View</p>
-              <p className="text-[#000000] dark:text-[#FFFFFF] cursor-pointer hover:underline text-base">Restore</p>
+              <p className="text-[#2461E6] dark:text-[#73FBFD] cursor-pointer hover:underline text-base">{t("view")}</p>
+              <p className="text-[#000000] dark:text-[#FFFFFF] cursor-pointer hover:underline text-base">{t("restore")}</p>
             </div>
           </div>
         </div>

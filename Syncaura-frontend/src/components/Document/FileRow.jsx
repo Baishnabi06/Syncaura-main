@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function FileRow() {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -24,15 +26,15 @@ export default function FileRow() {
             Q4_Financial_Report
           </p>
           <p className="text-sm text-neutral-500 dark:text-neutral-400 md:hidden">
-            PDF • v3.2
+          {t("file_small_display", { type: "PDF", version: "v3.2" })}
           </p>
         </div>
       </div>
 
       {/* Desktop Columns */}
       <div className="hidden md:flex items-center gap-10 flex-1 text-sm text-neutral-600 dark:text-neutral-400">
-        <span>PDF</span>
-        <span>v3.2</span>
+        <span>{t("file_type_pdf")}</span>
+        <span>{t("file_version_v3_2")}</span>
         <span>2023-25-07</span>
       </div>
 
@@ -41,11 +43,11 @@ export default function FileRow() {
         <span className="px-3 py-1 text-xs font-medium rounded-full 
           bg-green-100 text-green-700 
           dark:bg-green-900/30 dark:text-green-400">
-          Final
+        {t("file_status_final")}
         </span>
 
         <button className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium btn-hover">
-          Edit
+          {t("edit")}
         </button>
       </div>
     </motion.div>

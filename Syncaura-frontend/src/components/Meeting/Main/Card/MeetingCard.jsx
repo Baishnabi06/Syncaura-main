@@ -1,4 +1,5 @@
 import { Video, Camera, Monitor, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { TbBrandGoogleDrive, TbBrandTeams } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import { memo } from "react";
@@ -89,7 +90,18 @@ const MeetingCard = memo(function MeetingCard({
   isDoc
 }) {
   const isDark = useSelector((state) => state.theme.isDark);
+  const { t } = useTranslation();
   const status = getMeetingStatus(startTime, endTime);
+
+  // Translate known status codes; if status.label is a date string, show it as-is
+  const statusDisplay = ["COMPLETED","LIVE NOW","TODAY","TOMORROW"].includes(status.label)
+    ? t(
+        status.label === "COMPLETED" ? "meeting_status_completed" :
+        status.label === "LIVE NOW" ? "meeting_status_live_now" :
+        status.label === "TODAY" ? "meeting_status_today" :
+        "meeting_status_tomorrow"
+      )
+    : status.label;
 
   const MAX_VISIBLE = 3;
   const visibleAvatars = Math.min(avatarCount, MAX_VISIBLE);
@@ -124,7 +136,7 @@ const MeetingCard = memo(function MeetingCard({
             ) : (
               <TbBrandTeams className="size-3.5" />
             )}
-            {platform === "Google Meet" ? "Meet" : platform}
+            {platform === "Google Meet" ? t("meet_label") : platform}
           </div>
 
           {/* Status moved to RIGHT (MOBILE ONLY) */}
@@ -133,7 +145,7 @@ const MeetingCard = memo(function MeetingCard({
               ${status.textColor} ${status.bgColor}`}
           >
             <span className={`size-1.5 rounded-full ${status.dotColor}`} />
-            {status.label}
+            {statusDisplay}
           </span>
         </div>
 
@@ -230,13 +242,13 @@ const MeetingCard = memo(function MeetingCard({
                 } `}
             >
               {isCompleted
-                ? "Completed"
+                        ? t("meeting_completed")
                 : isUpcoming
                   ? <div className="flex items-center justify-center gap-1">
                     <ArrowRight className="size-3 dark:text-[#73FBFD]" />
-                    <span className="whitespace-nowrap">Details</span>
+                            <span className="whitespace-nowrap">{t("details")}</span>
                   </div>
-                  : "Join Now"}
+                          : t("join_now")}
             </button>
           </div>
         </div>
@@ -279,7 +291,7 @@ dark:shadow-[0_0_25px_rgba(115,251,253,0.18)]
       ) : (
         <TbBrandTeams className="size-4" />
       )}
-      <span>{platform === "Google Meet" ? "Meet" : platform}</span>
+      <span>{platform === "Google Meet" ? t("meet_label") : platform}</span>
     </div>
   </div>
 
